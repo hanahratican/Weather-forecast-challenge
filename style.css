@@ -1,5 +1,16 @@
 #header {
+    background: blue;
     width: 100%
     height: 100px
-    
+}
+
+.forecast-box {
+    width: 50%;
+    height: 100px;
+    display: flex;
+    background: red;
+}
+
+#city-name {
+    background: yellow;
 }
