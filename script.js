@@ -1,16 +1,15 @@
-var apiKey = "249693f73f27f9589246013eae5de6eb";
+const apiKey = "249693f73f27f9589246013eae5de6eb";
 //the api key gives you access to the weather api
 
 const srchBtn = document.getElementById('searchbtn');
 //variable for the search button
-
 
 const inputBox = document.getElementById('citysearch');
 //variable for the input box
 
 srchBtn.addEventListener('click', function() {
     const cityname = inputBox.value;
-    console.log(cityname);
+    console.log(cityname)
     getWeatherData() 
 });
 //when the search button is clicked, the city name is logged to the console and the getWeatherData function is called.
@@ -51,5 +50,14 @@ function oneDayForecast(latitude, longitude) {
     })
 } 
 //This function calls the 5 day forecast API
-//fetch(onDayURL) calls the API and returns a response from JSON
+//fetch(onDayURL) calls the API and returns a response from JSON 
 
+function tempDisplay() {
+    const geocodingURL = `http://api.openweathermap.org/geo/1.0/direct?q=${inputBox.value}&appid=${apiKey}`;
+    fetch(geocodingURL)
+    .then(function(response) {
+        return response.json()
+    })
+    document.getElementById('temp-display').innerHTML = data;
+}
+//trying to get this function to display the current temperature on the webpage
